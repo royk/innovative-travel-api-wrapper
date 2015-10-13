@@ -20,17 +20,20 @@ public class HotelAPIResponseItem {
         return "";
     }
 
-    public String getAsJson() {
-        if (initializer!=null) {
-            return initializer.getAsString();
-        }
-        return "";
+    public JsonObject getAsJson() {
+        JsonObject jo = new JsonObject();
+        jo.addProperty("name", getPropFromInitializer("name"));
+        jo.addProperty("id", getPropFromInitializer("id"));
+        jo.addProperty("type", getPropFromInitializer("type"));
+        jo.addProperty("subtype", getPropFromInitializer("subtype"));
+        return jo;
     }
 
     public String getName() {
         return getPropFromInitializer("name");
     }
     public String getId() {
+
         return getPropFromInitializer("id");
     }
     public String getType() {
